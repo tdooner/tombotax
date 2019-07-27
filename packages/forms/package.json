@@ -1,0 +1,19 @@
+{
+  "name": "@tombotax/forms",
+  "version": "0.0.0",
+  "description": "Form objects for the tax preparation",
+  "author": "Tom Dooner <tomdooner@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "src/forms.js",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
