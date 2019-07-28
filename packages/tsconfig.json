@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./cfa-styleguide" },
+    { "path": "./forms" },
+    { "path": "./web-ui" }
+  ]
+}

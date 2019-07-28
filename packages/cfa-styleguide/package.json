@@ -1,16 +1,21 @@
 {
-  "name": "@tombotax/forms",
+  "name": "@tombotax/cfa-styleguide",
   "version": "0.0.0",
-  "description": "Form objects for the tax preparation",
+  "description": "> TODO: description",
   "author": "Tom Dooner <tomdooner@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "lib/forms.js",
+  "main": "lib/cfa-styleguide.js",
+  "dependencies": {
+    "@types/react": "16.8.23",
+    "react": "^16.8.6"
+  },
   "directories": {
+    "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "lib"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"

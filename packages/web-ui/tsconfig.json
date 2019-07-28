@@ -1,27 +1,38 @@
 {
- "extends": "../../tsconfig.json",
- "compilerOptions": {
-   "declaration": false,
-   "target": "es5",
-   "lib": [
-     "dom",
-     "dom.iterable",
-     "esnext"
-   ],
-   "allowJs": true,
-   "skipLibCheck": true,
-   "esModuleInterop": true,
-   "allowSyntheticDefaultImports": true,
-   "strict": true,
-   "forceConsistentCasingInFileNames": true,
-   "module": "esnext",
-   "moduleResolution": "node",
-   "resolveJsonModule": true,
-   "isolatedModules": true,
-   "noEmit": true,
-   "jsx": "preserve"
- },
- "include": [
-   "src"
- ]
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "target": "es5",
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "isolatedModules": true
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../cfa-styleguide"
+    },
+    {
+      "path": "../forms"
+    }
+  ]
 }
