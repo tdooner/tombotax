@@ -1,19 +1,22 @@
 {
-  "name": "@tombotax/forms",
+  "name": "@tombotax/web-ui",
   "version": "0.0.0",
-  "description": "Form objects for the tax preparation",
+  "description": "> TODO: description",
   "author": "Tom Dooner <tomdooner@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "src/forms.ts",
+  "main": "src/index.js",
   "directories": {
-    "src": "src",
+    "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "lib"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@tombotax/forms": "0.0.0"
   }
 }
