@@ -1,10 +1,13 @@
 {
   "name": "tombotax",
   "private": true,
+  "scripts": {
+    "serve": "cd packages/web-ui && npm run start"
+  },
   "devDependencies": {
     "@types/node": "^12.6.8",
     "lerna": "^3.16.4",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "<3.5.0"
   }
 }
