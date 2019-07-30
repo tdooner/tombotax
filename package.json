@@ -2,11 +2,15 @@
   "name": "tombotax",
   "private": true,
   "scripts": {
-    "serve": "cd packages/web-ui && npm run start"
+    "serve": "cd packages/web-ui && npm run start",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.16",
     "@types/node": "^12.6.8",
+    "jest": "^24.8.0",
     "lerna": "^3.16.4",
+    "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
     "typescript": "<3.5.0"
   }
