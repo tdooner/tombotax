@@ -62,7 +62,13 @@ module.exports = {
   // A set of global variables that need to be available in all test environments
   globals: {
     'ts-jest': {
-      tsConfig: "packages/cfa-styleguide/tsconfig.json"
+      tsConfig: {
+        // TODO: Can these be re-enabled by providing some kind of type
+        // annotations in the test suite?
+        noImplicitAny: false,
+        noImplicitThis: false,
+        jsx: "react",
+      }
     }
   },
 
@@ -94,6 +100,8 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
+  // All JS files must be compiled so that Jest (Node) can read them without
+  // transformation.
   preset: 'ts-jest',
 
   // Run tests from one or more projects
@@ -172,9 +180,10 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   // transform: null,
 
-  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
+  // An array of regexp pattern strings that are matched against all source
+  // file paths, matched files will skip transformation
   // transformIgnorePatterns: [
-  //   "/node_modules/"
+  //   "/node_modules/" // ignore all node modules except the ones within this repo
   // ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them

@@ -29,7 +29,7 @@ export default class US_W2 {
     public line10: number | null,
     public line11: number | null,
     public line12: LetteredCodes | null,
-    public line13: W2Line13,
+    public line13: W2Line13 | null,
     public line14: OtherAmounts | null,
     public line15state: string | null,
     public line15id: string | null,
