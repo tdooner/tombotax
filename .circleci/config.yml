@@ -59,11 +59,12 @@ jobs:
           command: lerna run build
       - run:
           name: deploy react web ui
-          command: gh-pages --dist packages/web-ui/build --message "Build Site
+          command: |
+            gh-pages --dist packages/web-ui/build --message "Build Site
 
-          $(date)
-          $(git rev-parse HEAD)
-          [skip ci]"
+            $(date)
+            $(git rev-parse HEAD)
+            [skip ci]"
       - save_cache: *save-npm-cache
 
 
