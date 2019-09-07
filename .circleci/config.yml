@@ -7,12 +7,7 @@ aliases:
   - &save-npm-cache
     key: dependency-cache-{{ checksum "package.json" }}
     paths:
-      - /home/ubuntu/nvm/versions/node/10.11.0/bin
-      - /home/ubuntu/nvm/versions/node/10.11.0/lib/node_modules
       - ./node_modules
-      - ./packages/cfa-styleguide/node_modules
-      - ./packages/forms/node_modules
-      - ./packages/web-ui/node_modules
 
 
 jobs:
