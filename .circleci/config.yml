@@ -54,7 +54,7 @@ jobs:
       - run:
           name: deploy react web ui
           command: |
-            gh-pages --dist packages/web-ui/build --message "Build Site
+            ./packages/web-ui/node_modules/.bin/gh-pages --dist packages/web-ui/build --message "Build Site
 
             $(date)
             $(git rev-parse HEAD)
