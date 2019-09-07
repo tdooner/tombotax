@@ -80,17 +80,17 @@ workflows:
     jobs:
       - build:
           filters:
-            branch:
+            branches:
               only: master
       - test:
           requires:
             - build
           filters:
-            branch:
+            branches:
               only: master
       - deploy:
           requires:
             - test
           filters:
-            branch:
+            branches:
               only: master
