@@ -20,4 +20,4 @@ jobs:
             - ./node_modules
       - run: # run tests
           name: test
-          command: tsc -b packages --incremental && npm run test
+          command: npx tsc -b packages --incremental && npm run test
