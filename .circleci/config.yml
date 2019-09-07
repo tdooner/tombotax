@@ -21,10 +21,10 @@ jobs:
       - image: circleci/node:10.11.0
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
+      - restore_cache: *restore-npm-cache
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest lerna'
-      - restore_cache: *restore-npm-cache
       - run:
           name: install npm packages
           command: npm install && lerna bootstrap
@@ -39,6 +39,9 @@ jobs:
     steps:
       - checkout
       - restore_cache: *restore-npm-cache
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest lerna'
       - run:
           name: install npm packages
           command: npm install && lerna bootstrap
