@@ -1,5 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+/**
+ * @jest-environment jsdom
+ */
+
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import App from './App';
 
 it('renders without crashing', () => {

@@ -13,6 +13,9 @@ interface W2Line13 {
 }
 
 export default class US_W2 {
+  /* eslint-disable no-unused-vars */
+  /* eslint-disable no-useless-constructor */
+  /* eslint-disable no-empty-function */
   constructor(
     public line1: number,
     public line2: number,
@@ -34,7 +37,7 @@ export default class US_W2 {
     public line17: number | null,
     public line18: number | null,
     public line19: number | null,
-    public line20: number | null
+    public line20: number | null,
   ) {
   }
 }

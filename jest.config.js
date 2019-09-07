@@ -20,7 +20,8 @@ module.exports = {
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  // An array of glob patterns indicating a set of files for which coverage
+  // information should be collected
   // collectCoverageFrom: null,
 
   // The directory where Jest should output its coverage files
@@ -51,14 +52,19 @@ module.exports = {
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
 
-  // A path to a module which exports an async function that is triggered once before all test suites
+  // A path to a module which exports an async function that is triggered once
+  // before all test suites
   // globalSetup: null,
 
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: null,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    'ts-jest': {
+      tsConfig: "packages/cfa-styleguide/tsconfig.json"
+    }
+  },
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
