@@ -49,6 +49,8 @@ jobs:
       - run:
           name: deploy react web ui
           command: |
+            git config user.email "circle-ci@example.com"
+            git config user.name "circle-ci"
             ./packages/web-ui/node_modules/.bin/gh-pages --dist packages/web-ui/build --message "Build Site
 
             $(date)
