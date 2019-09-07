@@ -1,4 +1,18 @@
-version: 2 # use CircleCI 2.0
+---
+version: 2
+aliases:
+  - &restore-npm-cache
+    key: dependency-cache-{{ checksum "package.json" }}
+
+  - &save-npm-cache
+    key: dependency-cache-{{ checksum "package.json" }}
+    paths:
+      - ./node_modules
+      - ./packages/cfa-styleguide/node_modules
+      - ./packages/forms/node_modules
+      - ./packages/web-ui/node_modules
+
+
 jobs:
   build:
     docker: # run the steps with Docker
@@ -8,16 +22,74 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest lerna'
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package.json" }}
+      - restore_cache: *restore-npm-cache
       - run:
           name: install npm packages
           command: npm install && lerna bootstrap
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      - run:
+          name: build
+          command: npx tsc -b packages --incremental
+      - save_cache: *save-npm-cache
+
+  test:
+    docker: # run the steps with Docker
+      - image: circleci/node:10.11.0
+    steps:
+      - checkout
+      - restore_cache: *restore-npm-cache
+      - run:
+          name: install npm packages
+          command: npm install && lerna bootstrap
       - run: # run tests
           name: test
           command: npx tsc -b packages --incremental && npm run test
+      - save_cache: *save-npm-cache
+
+  deploy:
+    docker: # run the steps with Docker
+      - image: circleci/node:10.11.0
+    steps:
+      - checkout
+      - restore_cache: *restore-npm-cache
+      - run:
+          name: install npm packages
+          command: npm install && lerna bootstrap
+      - run:
+          name: build react web ui
+          command: lerna run build
+      - run:
+          name: deploy react web ui
+          command: gh-pages --dist packages/web-ui/build --message "Build Site
+
+          $(date)
+          $(git rev-parse HEAD)
+          [skip ci]"
+      - save_cache: *save-npm-cache
+
+
+workflows:
+  version: 2
+  run_tests:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+  deploy:
+    jobs:
+      - build:
+          filters:
+            branch:
+              only: master
+      - test:
+          requires:
+            - build
+          filters:
+            branch:
+              only: master
+      - deploy:
+          requires:
+            - test
+          filters:
+            branch:
+              only: master
