@@ -46,8 +46,8 @@ jobs:
           name: install npm packages
           command: npm install && lerna bootstrap
       - run:
-          name: build react web ui
-          command: lerna run build
+          name: build packages and react web ui
+          command: npx tsc -b packages --incremental && lerna run build
       - add_ssh_keys:
           fingerprints:
             - "4a:dc:3f:53:18:b6:fe:8c:69:a6:e7:b3:02:55:5a:f0"
@@ -69,10 +69,7 @@ workflows:
       - test
   deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              only: master
+      - test
       - deploy:
           requires:
             - test
