@@ -7,6 +7,8 @@ aliases:
   - &save-npm-cache
     key: dependency-cache-{{ checksum "package.json" }}
     paths:
+      - /home/ubuntu/nvm/versions/node/10.11.0/bin
+      - /home/ubuntu/nvm/versions/node/10.11.0/lib/node_modules
       - ./node_modules
       - ./packages/cfa-styleguide/node_modules
       - ./packages/forms/node_modules
@@ -28,20 +30,6 @@ jobs:
           command: npm install && lerna bootstrap
       - run:
           name: build
-          command: npx tsc -b packages --incremental
-      - save_cache: *save-npm-cache
-
-  test:
-    docker: # run the steps with Docker
-      - image: circleci/node:10.11.0
-    steps:
-      - checkout
-      - restore_cache: *restore-npm-cache
-      - run:
-          name: install npm packages
-          command: npm install && lerna bootstrap
-      - run: # run tests
-          name: test
           command: npx tsc -b packages --incremental && npm run test
       - save_cache: *save-npm-cache
 
@@ -72,19 +60,10 @@ workflows:
   version: 2
   run_tests:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - test
   deploy:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master
       - test:
-          requires:
-            - build
           filters:
             branches:
               only: master
