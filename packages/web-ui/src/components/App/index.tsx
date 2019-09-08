@@ -6,9 +6,9 @@ import HomePage from '../HomePage';
 
 // import Forms from '@tombotax/forms';
 
-const App: React.FC = () => {
+const App: React.FC<{ basename: string }> = (props) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={props.basename} >
       <Route path="/" exact component={HomePage} />
       <Route path="/forms" exact component={FormsPage} />
     </BrowserRouter>

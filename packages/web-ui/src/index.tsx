@@ -12,7 +12,9 @@ store.subscribe(() => console.log('updated state: ', store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App
+      basename={process.env.NODE_ENV === 'production' ? '/tombotax/' : ''}
+    />
   </Provider>
 , document.getElementById('root'));
 
