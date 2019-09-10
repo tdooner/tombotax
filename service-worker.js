@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tombotax/precache-manifest.a542ea84a3e44c1f3db7ae4846241c72.js"
+  "/tombotax/precache-manifest.769c00cfade0924e2719113f47f4b41a.js"
 );
 
 self.addEventListener('message', (event) => {
