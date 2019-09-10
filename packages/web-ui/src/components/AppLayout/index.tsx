@@ -1,4 +1,5 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const AppLayout: React.FC = ({ children }) => {
@@ -6,11 +7,11 @@ const AppLayout: React.FC = ({ children }) => {
     <React.Fragment>
       <Navbar bg="light" expand="lg" className="mb-3">
         <Container>
-          <Navbar.Brand href="/">Tombotax</Navbar.Brand>
+          <Link className="navbar-brand" to="/">Tombotax</Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/forms">Forms</Nav.Link>
+              <Link to="/forms" className="nav-link">Forms</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
