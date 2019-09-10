@@ -8,7 +8,8 @@ const HomePage: React.FC = () => {
     <AppLayout>
       <Row>
         <Col>
-          Welcome to Tombotax!
+          <p>Welcome to Tombotax!</p>
+          <p>You can do anything at Tombotax.</p>
         </Col>
       </Row>
     </AppLayout>
