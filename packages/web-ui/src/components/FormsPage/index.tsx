@@ -2,7 +2,7 @@ import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { FormState } from '../../stores/form/types';
+import { CombinedState } from '../../stores/form/types';
 import { addForm } from '../../stores/form/actions';
 import AppLayout from '../AppLayout';
 
@@ -22,8 +22,8 @@ const FormsPage: React.FC<{ formCount: number, addForm: typeof addForm }> = (pro
   );
 };
 
-const mapStateToProps = (state: FormState) => ({
-  formCount: state.count,
+const mapStateToProps = (state: CombinedState) => ({
+  formCount: state.form.count,
 });
 
 export default connect(

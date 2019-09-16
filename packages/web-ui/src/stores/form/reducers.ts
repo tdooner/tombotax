@@ -1,11 +1,16 @@
-import { ADD_FORM, FormActionTypes, FormState, REMOVE_FORM } from './types';
+import {
+  ADD_FORM,
+  FLOW_NEXT_PAGE,
+  FLOW_PREVIOUS_PAGE,
+  FlowActionTypes,
+  FlowState,
+  FormActionTypes,
+  FormState,
+  REMOVE_FORM
+} from './types';
 
-const initialState: FormState = {
-  count: 0
-};
-
-export default function formReducer(
-  state = initialState,
+export function formReducer(
+  state = { count: 0 } as FormState,
   action: FormActionTypes
 ): FormState {
   switch(action.type) {
@@ -18,6 +23,26 @@ export default function formReducer(
       return {
         ...state,
         count: state.count - action.payload,
+      };
+  }
+
+  return state;
+}
+
+export function flowReducer(
+  state = { pageIndex: 0 } as FlowState,
+  action: FlowActionTypes
+): FlowState {
+  switch(action.type) {
+    case FLOW_NEXT_PAGE:
+      return {
+        ...state,
+        pageIndex: state.pageIndex + 1,
+      };
+    case FLOW_PREVIOUS_PAGE:
+      return {
+        ...state,
+        pageIndex: state.pageIndex - 1,
       };
   }
 

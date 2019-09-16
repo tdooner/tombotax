@@ -1,6 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import React from 'react';
 
+import FlowController from '../FlowController';
 import FormsPage from '../FormsPage';
 import HomePage from '../HomePage';
 
@@ -11,6 +12,7 @@ const App: React.FC<{ basename?: string }> = (props) => {
     <BrowserRouter basename={props.basename} >
       <Route path="/" exact component={HomePage} />
       <Route path="/forms" exact component={FormsPage} />
+      <Route path="/flow" exact component={FlowController} />
     </BrowserRouter>
   );
 }
